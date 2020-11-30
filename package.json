@@ -35,7 +35,7 @@
     "electron-release": "electron-builder --publish=always",
     "react-start": "react-scripts start",
     "react-build": "react-scripts build",
-    "react-serve": "cross-env BROWSER=none&&yarn react-start"
+    "react-serve": "cross-env BROWSER=none yarn react-start"
   },
   "eslintConfig": {
     "extends": "react-app"
