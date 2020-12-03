@@ -32,6 +32,7 @@ export default class App extends Component<{}, AppState> {
         return (
             <>
                 <HeaderBar
+                    serverListMenuDisplayed={serverListMenuDisplayed}
                     setServerListMenuDisplayed={this.setServerListMenuDisplayed}
                 />
                 <ServerListMenu

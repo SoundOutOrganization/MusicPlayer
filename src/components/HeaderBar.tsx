@@ -37,33 +37,30 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }))
 
 type HeaderBarProps = {
+    serverListMenuDisplayed: boolean,
     setServerListMenuDisplayed: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export default function HeaderBar(props: HeaderBarProps) {
     const classes = useStyles()
-    const { setServerListMenuDisplayed } = props
+    const { serverListMenuDisplayed, setServerListMenuDisplayed } = props
 
     return (
         <AppBar
             position="fixed"
-            className = {
-                clsx(classes.appBar, {
-                    [classes.appBarShift]: true
-                })
-            }
+            className={clsx(classes.appBar, {
+                [classes.appBarShift]: serverListMenuDisplayed,
+              })}
         >
             <Toolbar>
                 <IconButton
                     color="inherit"
-                    aria-label="menu"
+                    aria-label="open drawer"
                     onClick={setServerListMenuDisplayed}
                     edge="start"
-                    className={
-                        clsx(classes.menuButton, {
-                            [classes.hide]: true
-                        })
-                    }
+                    className={clsx(classes.menuButton, {
+                        [classes.hide]: serverListMenuDisplayed,
+                    })}
                 >
                     <MenuIcon/>
                 </IconButton>

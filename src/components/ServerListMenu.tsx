@@ -82,7 +82,7 @@ export default function ServerListMenu(props: ServerListMenuProps) {
                 </IconButton>
             </div>
             <Divider/>
-            <List>                                                                                                                                                                                                                                                                                                      
+            <List>
                 {
                     serverList.map((serverName: String, index) => (
                         <ListItem button key={index}>
