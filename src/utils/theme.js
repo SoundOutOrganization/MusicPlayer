@@ -12,4 +12,5 @@ export default createMuiTheme({
         default: '#1f2324'
     }
   },
+  direction: 'ltr'
 });
