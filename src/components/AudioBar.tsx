@@ -8,7 +8,7 @@ import AudioPlayer from 'material-ui-audio-player';
 const muiTheme = createMuiTheme({});
 
 const src = [
-    'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    'http://localhost:5000/play/1',
 ];
 
 type AudioBarProps = {
@@ -20,6 +20,9 @@ export default function AudioBar(props: AudioBarProps) {
             <AudioPlayer 
                 src={src}
                 width="500px"
+                loop={true}
+                spacing={3}
+                elevation={3}
             />
         </ThemeProvider>
     )
