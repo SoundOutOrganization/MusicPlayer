@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import HeaderBar from './HeaderBar'
 import ServerListMenu from './ServerListMenu'
-import AudioBar from './AudioBar'
 
 const FAKE_SERVER_LIST = [
     'Server1', 'Server2', 'Server3', 'Server4', 'Server5'
@@ -41,20 +40,6 @@ export default class App extends Component<{}, AppState> {
                     serverList={FAKE_SERVER_LIST}
                     setServerListMenuDisplayed={this.setServerListMenuDisplayed}
                 />
-                
-                <div style={{
-                    //display: "flex",
-                    justifyContent: "center",
-                    //alignItems: "flex-end",
-                    position: "fixed",
-                    left: "50%",
-                    bottom: "0px",
-                    transform: "translate(-50%, -50%)",
-                    margin: "0 auto",
-                }}>
-                    <AudioBar
-                    />
-                </div>
             </>
         );
     }
