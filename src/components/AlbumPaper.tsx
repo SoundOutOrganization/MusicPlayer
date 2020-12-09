@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import {
-    List,
     Card,
     CardMedia,
     ListItem,
     ListItemText,
-    ListSubheader,
     Collapse,
     Typography,
     Theme,

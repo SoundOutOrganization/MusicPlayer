@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import {
     Theme
@@ -219,10 +219,6 @@ type AlbumInfo = {
     name: string,
     coverUrl: string
     songsInfos: songInfo[]
-}
-
-type AlbumPaperProps = {
-    albumInfo: AlbumInfo
 }
 
 export default function AlbumDisplayer() {

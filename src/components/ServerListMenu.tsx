@@ -12,7 +12,6 @@ import {
 import { createStyles, makeStyles, useTheme} from '@material-ui/styles'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import clsx from 'clsx'
 
 const drawerWidth = 240
@@ -60,7 +59,7 @@ type ServerListMenuProps = {
 export default function ServerListMenu(props: ServerListMenuProps) {
     const { open, serverList, setServerListMenuDisplayed } = props
     const classes = useStyles()
-    const theme = useTheme()
+    // const theme = useTheme()
 
     return (
         <Drawer
