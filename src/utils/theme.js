@@ -9,7 +9,8 @@ export default createMuiTheme({
       main: '#11bdf4',
     },
     background: {
-        default: '#1f2324'
+        default: '#1f2324',
+        paper: '#2e3335'
     }
   },
   direction: 'ltr'
