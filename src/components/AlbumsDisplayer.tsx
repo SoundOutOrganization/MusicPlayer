@@ -7,7 +7,7 @@ import AlbumPaper from './AlbumPaper'
 
 const FAKE_ALBUM_INFO = {
     name: 'Lil Uzi Vert vs. the World 2',
-    coverUrl: 'https://www.latoquiz.com/wp-content/uploads/2019/11/Quiz-reptile-1024x427.png',
+    coverUrl: 'https://images-na.ssl-images-amazon.com/images/I/717VbeZb0bL._AC_SX466_.jpg',
     songsInfos: [
         {
             url: "localhost:5000/play/foo.mp3",
@@ -198,12 +198,6 @@ const FAKE_ALBUM_INFO = {
         {
             url: "localhost:5000/play/foo.mp3",
             name: "That Way",
-            duration: 350
-        },
-
-        {
-            url: "localhost:5000/play/foo.mp3",
-            name: "Signaler un problème",
             duration: 350
         },
     ]

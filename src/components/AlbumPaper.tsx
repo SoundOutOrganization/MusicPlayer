@@ -18,7 +18,7 @@ import {
     ExpandMore,
     PlayCircleFilled
 } from '@material-ui/icons'
-import { FixedSizeList, ListChildComponentProps } from 'react-window';
+import { FixedSizeList, ListChildComponentProps } from 'react-window'
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
@@ -86,7 +86,7 @@ export default function AlbumPaper(props: AlbumPaperProps) {
                 <ListItemIcon>
                     <PlayCircleFilled color="secondary"/>
                 </ListItemIcon>
-                <ListItemText primary={`item ${index}`} primaryTypographyProps={{ color: "textSecondary" }}/>
+                <ListItemText primary={ albumInfo.songsInfos[index].name } primaryTypographyProps={{ color: "textSecondary" }}/>
             </ListItem>
         )
     }
@@ -97,7 +97,7 @@ export default function AlbumPaper(props: AlbumPaperProps) {
                 className={classes.media}
                 component="img"
                 height="140"
-                image="https://images-na.ssl-images-amazon.com/images/I/717VbeZb0bL._AC_SX466_.jpg"
+                image={albumInfo.coverUrl}
             />
             <Typography gutterBottom variant="h5" component="h2" className={classes.albumTitle}>
                 {albumInfo.name}
@@ -109,7 +109,7 @@ export default function AlbumPaper(props: AlbumPaperProps) {
                 {open ? <ExpandLess/> : <ExpandMore/>}
             </Button>
                 <Collapse in={open} timeout="auto" unmountOnExit>
-                    <FixedSizeList height={250} width={340} itemSize={46} itemCount={albumInfo.songsInfos.length}>
+                    <FixedSizeList height={250} width={350} itemSize={46} itemCount={albumInfo.songsInfos.length}>
                         {RenderSongInList}
                     </FixedSizeList>                   
                 </Collapse>
