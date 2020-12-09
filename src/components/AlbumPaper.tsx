@@ -11,7 +11,9 @@ import {
     Typography,
     Theme,
     ListItemIcon,
-    Button
+    Button,
+    CardActions,
+    IconButton
 } from '@material-ui/core'
 import {
     ExpandLess,
@@ -25,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
         maxWidth: 345,
         backgroundColor: theme.palette.background.paper,
+        position: 'relative'
     },
     media: {
         marginTop: '50px',
@@ -45,19 +48,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     durationText: {
         textAlign: 'right',
         fontSize: '0.5em'
+    },
+    mainPlayIconButton: {
+        fontSize: '3em',
+    },
+    cardActions: {
+        position: 'absolute',
+        right: '23px',
+        top: '175px'
     }
 }))
-
-// const useStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     root: {
-//         width: '100%',
-//         maxWidth: 360,
-//         borderRadius: "10%",
-//         backgroundColor: theme.palette.background.paper,
-//     },
-//   }),
-// )
 
 type songInfo = {
     url: string
@@ -112,6 +112,14 @@ export default function AlbumPaper(props: AlbumPaperProps) {
                 height="140"
                 image={albumInfo.coverUrl}
             />
+            <CardActions className={classes.cardActions}>
+                <IconButton size="medium">
+                    <PlayCircleFilled
+                        color="secondary"
+                        className={classes.mainPlayIconButton}
+                    />
+                </IconButton>
+            </CardActions>
             <Typography gutterBottom variant="h5" component="h2" className={classes.albumTitle}>
                 {albumInfo.name}
             </Typography>
