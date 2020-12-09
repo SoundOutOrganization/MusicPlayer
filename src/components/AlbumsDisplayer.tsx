@@ -12,43 +12,43 @@ const FAKE_ALBUM_INFO = {
         {
             url: "localhost:5000/play/foo.mp3",
             name: "Baby Pluto",
-            duration: 350
+            duration: 250
         },
 
         {
             url: "localhost:5000/play/foo.mp3",
             name: "Myron",
-            duration: 350
+            duration: 366
         },
 
         {
             url: "localhost:5000/play/foo.mp3",
             name: "Lo Mein",
-            duration: 350
+            duration: 241
         },
 
         {
             url: "localhost:5000/play/foo.mp3",
             name: "Lotus",
-            duration: 350
+            duration: 3
         },
 
         {
             url: "localhost:5000/play/foo.mp3",
             name: "Bean (Kobe)",
-            duration: 350
+            duration: 120
         },
 
         {
             url: "localhost:5000/play/foo.mp3",
             name: "Silly Watch",
-            duration: 350
+            duration: 44350
         },
 
         {
             url: "localhost:5000/play/foo.mp3",
             name: "Yessirskiii",
-            duration: 350
+            duration: 3684
         },
 
         {
@@ -126,13 +126,13 @@ const FAKE_ALBUM_INFO = {
         {
             url: "localhost:5000/play/foo.mp3",
             name: "Chrome Heart Tags",
-            duration: 350
+            duration: 3550
         },
 
         {
             url: "localhost:5000/play/foo.mp3",
             name: "No Auto",
-            duration: 350
+            duration: 35750
         },
 
         {

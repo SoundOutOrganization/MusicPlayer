@@ -16,9 +16,12 @@ export const secondToTimeConverter = (seconds: number): ConvertedTime => {
 export const convertedTimeToString = (convertedTime: ConvertedTime): string => {
     return (
         (convertedTime.hours > 0 ? convertedTime.hours + ':' : "") +
-        (convertedTime.minutes > 0 ? convertedTime.minutes + ':' : convertedTime.minutes == 0 ? "00:" : "") +
-        (convertedTime.seconds > 0 ? convertedTime.seconds : convertedTime.minutes == 0 ? "00" : "")
+        ((convertedTime.hours > 0 && convertedTime.minutes < 10) ? "0" : "") +
+        (convertedTime.minutes > 0 ? convertedTime.minutes + ':' : convertedTime.minutes === 0 ? "00:" : "") +
+        (convertedTime.seconds > 0 ? convertedTime.seconds >= 10 ? convertedTime.seconds : '0' + convertedTime.seconds : "00")
     )
 }
 
 const secondConverter = (seconds: number): string => convertedTimeToString(secondToTimeConverter(seconds))
+
+export default secondConverter

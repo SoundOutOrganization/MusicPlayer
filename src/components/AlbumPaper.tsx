@@ -19,6 +19,7 @@ import {
     PlayCircleFilled
 } from '@material-ui/icons'
 import { FixedSizeList, ListChildComponentProps } from 'react-window'
+import secondConverter from '../utils/secondConverter'
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
@@ -40,6 +41,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
     expandButton: {
         width: '100%'
+    },
+    durationText: {
+        textAlign: 'right',
+        fontSize: '0.5em'
     }
 }))
 
@@ -86,7 +91,15 @@ export default function AlbumPaper(props: AlbumPaperProps) {
                 <ListItemIcon>
                     <PlayCircleFilled color="secondary"/>
                 </ListItemIcon>
-                <ListItemText primary={ albumInfo.songsInfos[index].name } primaryTypographyProps={{ color: "textSecondary" }}/>
+                <ListItemText
+                    primary={ albumInfo.songsInfos[index].name }
+                    primaryTypographyProps={{ color: "textPrimary" }}
+                />
+                <ListItemText
+                    className={classes.durationText}
+                    secondary={ secondConverter(albumInfo.songsInfos[index].duration) }
+                    secondaryTypographyProps={{ color: "textSecondary" }}
+                />
             </ListItem>
         )
     }
