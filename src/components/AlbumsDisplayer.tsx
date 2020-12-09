@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import {
-    Theme
+    Theme,
+    Grid
 } from '@material-ui/core';
 import AlbumPaper from './AlbumPaper'
 
@@ -203,32 +204,45 @@ const FAKE_ALBUM_INFO = {
     ]
 }
 
+
+const ALBUMS = [
+    FAKE_ALBUM_INFO,
+    FAKE_ALBUM_INFO,
+    FAKE_ALBUM_INFO,
+    FAKE_ALBUM_INFO,
+    FAKE_ALBUM_INFO
+]
+
 const useStyles = makeStyles((theme: Theme) => createStyles({
-    root: {        
+    root: {
         marginLeft: 270,
         marginTop: 94
     }
 }))
 
-type songInfo = {
-    url: string
-    name: string
+type AlbumDisplayerProps = {
+    albums: any
 }
 
-type AlbumInfo = {
-    name: string,
-    coverUrl: string
-    songsInfos: songInfo[]
-}
-
-export default function AlbumDisplayer() {
+export default function AlbumDisplayer(props: any) {
+    // const { albums } = props
+    const albums = ALBUMS
     const classes = useStyles();    
 
     return (
         <div className={classes.root}>
-            <AlbumPaper
-                albumInfo={FAKE_ALBUM_INFO}
-            />
+            <Grid container xs={12} spacing={10}>
+                {
+                    albums.map((album, index) => (
+                        <Grid item xs={4}>
+                            <AlbumPaper
+                                albumInfo={album}
+                                key={index}
+                            />
+                        </Grid>
+                    ))
+                }
+            </Grid>
         </div>
     )
 }

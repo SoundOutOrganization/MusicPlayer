@@ -11,12 +11,13 @@ import {
     ListItemIcon,
     Button,
     CardActions,
-    IconButton
+    IconButton,
 } from '@material-ui/core'
 import {
     ExpandLess,
     ExpandMore,
-    PlayCircleFilled
+    PlayCircleFilled,
+    PlayArrow
 } from '@material-ui/icons'
 import { FixedSizeList, ListChildComponentProps } from 'react-window'
 import secondConverter from '../utils/secondConverter'
@@ -112,7 +113,7 @@ export default function AlbumPaper(props: AlbumPaperProps) {
             />
             <CardActions className={classes.cardActions}>
                 <IconButton size="medium">
-                    <PlayCircleFilled
+                    <PlayArrow
                         color="secondary"
                         className={classes.mainPlayIconButton}
                     />
