@@ -55,7 +55,7 @@ export default class App extends Component<{}, AppState> {
                         margin: "0 auto",
                     }}> */}                    
                 {/* </div> */}
-                {/* <div style={{
+                <div style={{
                         //display: "flex",
                         justifyContent: "center",
                         //alignItems: "flex-end",
@@ -64,10 +64,9 @@ export default class App extends Component<{}, AppState> {
                         bottom: "0px",
                         transform: "translate(-50%, -50%)",
                         margin: "0 auto",
-                    }}> */}
-                    {/* <AudioBar/> */}
-                    
-                {/* </div> */}
+                    }}>
+                    <AudioBar/>
+                </div>
             </>
         );
     }

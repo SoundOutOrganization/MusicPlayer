@@ -74,13 +74,10 @@ type AlbumPaperProps = {
     albumInfo: AlbumInfo
 }
 
-
-
 export default function AlbumPaper(props: AlbumPaperProps) {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
     const { albumInfo } = props
-
 
     function RenderSongInList(props: ListChildComponentProps) {
         const { index, style } = props
