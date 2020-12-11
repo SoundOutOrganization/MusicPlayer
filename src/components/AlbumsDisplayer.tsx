@@ -5,6 +5,7 @@ import {
     Grid
 } from '@material-ui/core';
 import AlbumPaper from './AlbumPaper'
+import FakeAlbumPaperContainer from '../containers/FakeAlbumPaperContainer'
 
 const FAKE_ALBUM_INFO = {
     name: 'Lil Uzi Vert vs. the World 2',
@@ -221,7 +222,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }))
 
 type AlbumDisplayerProps = {
-    albums: any
+    albums: any,
+    setCurrentMusic: Function
 }
 
 export default function AlbumDisplayer(props: any) {
@@ -229,6 +231,7 @@ export default function AlbumDisplayer(props: any) {
     const albums = ALBUMS
     const classes = useStyles();    
 
+    const { setCurrentMusic } = props
     return (
         <div className={classes.root}>
             <Grid container xs={12} spacing={10}>
@@ -240,8 +243,14 @@ export default function AlbumDisplayer(props: any) {
                                 key={index}
                             />
                         </Grid>
-                    ))
+                    ))                    
                 }
+                <Grid item xs={4}>
+                    <FakeAlbumPaperContainer
+                        setCurrentMusic={setCurrentMusic}
+                    />
+                </Grid>
+
             </Grid>
         </div>
     )

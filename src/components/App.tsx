@@ -10,7 +10,8 @@ const FAKE_SERVER_LIST = [
 ]
 
 type AppState = {
-  serverListMenuDisplayed: boolean
+  serverListMenuDisplayed: boolean,
+  currentMusicUrl: string
 }
 
 export default class App extends Component<{}, AppState> {
@@ -18,7 +19,8 @@ export default class App extends Component<{}, AppState> {
     constructor(props: {})   {
         super(props)
         this.state = {
-            serverListMenuDisplayed: true
+            serverListMenuDisplayed: true,
+            currentMusicUrl: ''
         }
         this.setServerListMenuDisplayed = this.setServerListMenuDisplayed.bind(this)
     }
@@ -31,7 +33,7 @@ export default class App extends Component<{}, AppState> {
     }
 
     render() {
-        const { serverListMenuDisplayed } = this.state
+        const { serverListMenuDisplayed, currentMusicUrl } = this.state
         return (
             <>
                 <HeaderBar
@@ -43,7 +45,13 @@ export default class App extends Component<{}, AppState> {
                     serverList={FAKE_SERVER_LIST}
                     setServerListMenuDisplayed={this.setServerListMenuDisplayed}
                 />
-                <AlbumDisplayer/>
+                <AlbumDisplayer
+                    setCurrentMusic={(url:string):void => {                        
+                        this.setState({
+                            currentMusicUrl: url
+                        })                        
+                } }
+                />
                 {/* <div style={{
                         //display: "flex",
                         justifyContent: "center",
@@ -65,7 +73,9 @@ export default class App extends Component<{}, AppState> {
                         transform: "translate(-50%, -50%)",
                         margin: "0 auto",
                     }}>
-                    <AudioBar/>
+                    <AudioBar
+                        url={currentMusicUrl}
+                    />
                 </div>
             </>
         );

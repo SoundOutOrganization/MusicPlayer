@@ -58,42 +58,44 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
 }))
 
-type songInfo = {
-    url: string
-    name: string,
-    duration: number
+type FakeMusic = {
+    author: string,
+    genre: string,
+    id: number,
+    link: string,
+    title: string
 }
 
-type AlbumInfo = {
-    name: string,
-    coverUrl: string
-    songsInfos: songInfo[]
+type FakeAlbumPaperProps = {
+    setCurrentMusic: Function,
+    musicList: FakeMusic[]
 }
 
-type AlbumPaperProps = {
-    albumInfo: AlbumInfo
-}
 
-export default function AlbumPaper(props: AlbumPaperProps) {
+export default function AlbumPaper(props: FakeAlbumPaperProps) {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
-    const { albumInfo } = props
+    const { setCurrentMusic, musicList } = props
 
     function RenderSongInList(props: ListChildComponentProps) {
         const { index, style } = props
     
         return (
             <ListItem button style={style} key={index}>
-                <ListItemIcon>
+                <ListItemIcon onClick={() => {
+                        setCurrentMusic(`http://localhost:5000/play/${musicList[index].id}`)
+                    }}
+                >
                     <PlayCircleFilled color="secondary"/>
                 </ListItemIcon>
                 <ListItemText
-                    primary={ albumInfo.songsInfos[index].name }
+                    primary = {musicList[index].title}
+                    // primary={ albumInfo.songsInfos[index].name }
                     primaryTypographyProps={{ color: "textPrimary" }}
                 />
                 <ListItemText
                     className={classes.durationText}
-                    secondary={ secondConverter(albumInfo.songsInfos[index].duration) }
+                    // secondary={ secondConverter(albumInfo.songsInfos[index].duration) }
                     secondaryTypographyProps={{ color: "textSecondary" }}
                 />
             </ListItem>
@@ -106,18 +108,18 @@ export default function AlbumPaper(props: AlbumPaperProps) {
                 className={classes.media}
                 component="img"
                 height="140"
-                image={albumInfo.coverUrl}
+                image={'https://images-na.ssl-images-amazon.com/images/I/717VbeZb0bL._AC_SX466_.jpg'}
             />
             <CardActions className={classes.cardActions}>
                 <IconButton size="medium">
                     <PlayCircleFilled
                         color="secondary"
-                        className={classes.mainPlayIconButton}
+                        className={classes.mainPlayIconButton}                        
                     />
                 </IconButton>
             </CardActions>
             <Typography gutterBottom variant="h5" component="h2" className={classes.albumTitle}>
-                {albumInfo.name}
+                {'Demo Album'}
             </Typography>
             <Button
                 className={classes.expandButton}
@@ -126,7 +128,7 @@ export default function AlbumPaper(props: AlbumPaperProps) {
                 {open ? <ExpandLess/> : <ExpandMore/>}
             </Button>
                 <Collapse in={open} timeout="auto" unmountOnExit>
-                    <FixedSizeList height={250} width={350} itemSize={46} itemCount={albumInfo.songsInfos.length}>
+                    <FixedSizeList height={250} width={350} itemSize={46} itemCount={musicList.length}>
                         {RenderSongInList}
                     </FixedSizeList>                   
                 </Collapse>

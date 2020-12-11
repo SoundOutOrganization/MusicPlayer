@@ -12,13 +12,15 @@ const src = [
 ];
 
 type AudioBarProps = {
+    url: string
 }
 
 export default function AudioBar(props: AudioBarProps) {
+    const { url } = props
     return (
         <ThemeProvider theme={muiTheme}>
             <AudioPlayer 
-                src={src}
+                src={url}
                 width="500px"
                 loop={true}
                 spacing={3}
